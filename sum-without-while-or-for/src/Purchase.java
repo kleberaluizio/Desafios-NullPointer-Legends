@@ -12,6 +12,7 @@ public class Purchase {
         this.client = clientName;
         this.date = LocalDate.now();
         this.purchases = new ArrayList<>();
+        this.purchaseTotalValue = 0;
     }
 
     public List<Item> getPurchases(){
@@ -27,9 +28,10 @@ public class Purchase {
      return this.purchaseTotalValue;
     }
 
-    public void cancelItem(Item item){
+    public boolean cancelItem(Item item){
         item.cancel();
-        this.purchases.remove(item);
+        boolean removed = this.purchases.remove(item);
         this.purchaseTotalValue -= item.getTotalValue();
+        return removed;
     }
 }
