@@ -20,6 +20,9 @@ public class Item {
         this.cancel = false;
     }
 
+    public void setCancel(){
+        this.cancel = true;
+    }
     public void setQuantity(int quantity){
         this.quantity = quantity;
     }

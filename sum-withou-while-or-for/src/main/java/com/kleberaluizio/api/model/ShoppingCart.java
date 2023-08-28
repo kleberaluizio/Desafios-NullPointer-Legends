@@ -7,32 +7,32 @@ import java.util.List;
 public class ShoppingCart {
     private Client client;
     private final LocalDate date;
-    private List<Item> purchases;
+    private List<Item> itemList;
     private double purchaseTotalValue;
 
     public ShoppingCart(Client client){
         this.client = client;
         this.date = LocalDate.now();
-        this.purchases = new ArrayList<>();
+        this.itemList = new ArrayList<>();
         this.purchaseTotalValue = 0;
     }
 
-    public List<Item> getPurchases(){
-        return purchases;
+    public List<Item> getItemList(){
+        return itemList;
     }
 
     public double getPurchaseTotalValue(){
         return this.purchaseTotalValue;
     }
 
-
     public void addItem(Item item){
-        this.purchases.add(item);
+        this.itemList.add(item);
         updatePurchaseTotalValue(item.getItemTotalItemValue());
     }
 
     public boolean cancelItem(Item item){
-        boolean removed = this.purchases.remove(item);
+        item.setCancel();
+        boolean removed = this.itemList.remove(item);
         updatePurchaseTotalValue(-item.getItemTotalItemValue());
         return removed;
     }

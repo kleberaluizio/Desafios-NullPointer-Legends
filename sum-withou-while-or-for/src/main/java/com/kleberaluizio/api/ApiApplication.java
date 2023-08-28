@@ -3,7 +3,6 @@ package com.kleberaluizio.api;
 import com.kleberaluizio.api.model.Client;
 import com.kleberaluizio.api.model.Item;
 import com.kleberaluizio.api.model.ShoppingCart;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -27,7 +26,7 @@ public class ApiApplication {
 		bobPurchases.cancelItem(item2);
 		bobPurchases.updateItemQuantity(item4, 9);
 
-		for (Item purchase : bobPurchases.getPurchases()) {
+		for (Item purchase : bobPurchases.getItemList()) {
 			System.out.println(purchase);
 		}
 
